@@ -1,8 +1,8 @@
 import React from "react";
-import { mount } from "marketing/index";
+import { mount } from "auth/index";
 import { useHistory } from "react-router-dom";
 
-const MarketingApp = () => {
+const MarketingApp = ({ onSignIn }) => {
   const ref = React.useRef(null);
   const history = useHistory();
 
@@ -16,6 +16,7 @@ const MarketingApp = () => {
           history.push(nextPathname);
         }
       },
+      onSignIn,
     });
 
     history.listen(onParentNavigate);
